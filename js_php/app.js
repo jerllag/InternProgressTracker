@@ -29,7 +29,7 @@ app.controller("LogInController", function($http, $scope, $modal, $log, $locatio
 	};
 	
 	$scope.scrollTo = function(id) {
-      $location.hash(id);
+      $location.hash('aboutUs');
       $anchorScroll();
    }
 });
