@@ -1,0 +1,32 @@
+body {
+	height: 100%;
+	font-family: Arial, Verdana, Helvetica;
+
+}
+
+#footer { 
+   background-color: #0c5aa0;
+   color: #ffffff;
+   padding: 20px 20px;
+   bottom: 0;
+}
+
+#student_signup, #prof_signup, #login, #content {
+	padding: 20px;
+}
+
+#aboutUs{
+	padding: 20px;
+}
+
+#navBar .font{
+	background-color: #123456;
+	color: #ffffff;
+
+}
+
+#colorHover:hover {
+	background-color: #ffffff;
+	color: #123456;
+}
+
