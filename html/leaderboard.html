@@ -1,84 +1,105 @@
-<?php include("header.php"); ?>
-  
-<div class="container">
-	<section class="page-header" id="content">
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 align="center"> Leaderboard </h2>
+	<div ng-controller="navbarController">
+		<nav class ="navbar navbar-default navbar-fixed-top" id="navBar" style="background-image: url(images/res/bg_4.jpg); repeat: no-repeat; width=100%;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-icon" href="index.php"><img src="images/logo.png" alt="logo"></a>
+				</div>
+			
+				<div class="collapse navbar-collapse" id="homeNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/leaderboard" id="colorHover"><span class="glyphicon glyphicon-pushpin"></span> Leader Board</a></li>
+						<li><a href="#/profile" id="colorHover"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="#/accomplishmentReport" id="colorHover"><span class="glyphicon glyphicon-th-list"></span> Accomplishment Report</a></li>
+						<li><a id="colorHover" role="button" ng-click="signOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</section>
-	
-	<div class="row">
-		<div class="col-lg-12"></div>
-
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th class="col-lg-2"> Photo </th>
-					<th class="col-lg-4"> Intern </th>
-					<th class="col-lg-6"> Progress </th>
-				</tr>
-			</thead>
-			
-			<tbody>
-			<tr class="info">
-				<td class="col-lg-3">
-					<img src="images/users/brian.png" class="img-circle" width="40%">
-				</td>
-				<td class="col-lg-3">
-					<h4>Brian B. Caldona </h4>
-					<h5>Expert Global Solutions (Marikina Site) </h5>
-				</td>
-				<td class="col-lg-3">
-					<div class="progress">
-						<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							70% Complete
-						</div>
-					</div>
-				</td>
-			</tr>
-			<!---remove, replace with loop from retrieving from db, LAYOUT PURPOSES ONLY-->
-			<tr>
-				<td class="col-lg-3">
-					<img src="images/users/karen.png" class="img-circle" width="40%">
-				</td>
-				<td class="col-lg-3">
-					<h4>Karen Marie E. Igcasan</h4>
-					<h5>Technomancer</h5>
-				</td>
-				<td class="col-lg-3">
-					<div class="progress">
-						<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							50% Complete
-						</div>
-					</div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="col-lg-3">
-					<img src="images/users/marnie.jpg" class="img-circle" width="40%">
-				</td>
-				<td class="col-lg-3">
-					<h4>Marnie Bright R. Palapar</h4>
-					<h5>ACS Technologies Ltd.</h5>
-				</td>
-				<td class="col-lg-3">
-					<div class="progress">
-						<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							30% Complete
-						</div>
-					</div>
-				</td>
-			</tr>
-			<!---end here-->
-				
-				
-				
-			</tbody>
-		</table>
+		</nav>
 	</div>
-</div>
 
-<?php include("footer.php"); ?>
+	<div class="container">
+		<section class="page-header" id="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 align="center"> Leaderboard </h2>
+				</div>
+			</div>
+		</section>
+		
+		<div class="row">
+			<div class="col-lg-12"></div>
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="col-lg-2"> Photo </th>
+						<th class="col-lg-4"> Intern </th>
+						<th class="col-lg-6"> Progress </th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<tr class="info">
+					<td class="col-lg-3">
+						<img src="images/users/brian.png" class="img-circle" width="40%">
+					</td>
+					<td class="col-lg-3">
+						<h4>Brian B. Caldona </h4>
+						<h5>Expert Global Solutions (Marikina Site) </h5>
+					</td>
+					<td class="col-lg-3">
+						<div class="progress">
+							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+								70% Complete
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!---remove, replace with loop from retrieving from db, LAYOUT PURPOSES ONLY-->
+				<tr>
+					<td class="col-lg-3">
+						<img src="images/users/karen.png" class="img-circle" width="40%">
+					</td>
+					<td class="col-lg-3">
+						<h4>Karen Marie E. Igcasan</h4>
+						<h5>Technomancer</h5>
+					</td>
+					<td class="col-lg-3">
+						<div class="progress">
+							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+								50% Complete
+							</div>
+						</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="col-lg-3">
+						<img src="images/users/marnie.jpg" class="img-circle" width="40%">
+					</td>
+					<td class="col-lg-3">
+						<h4>Marnie Bright R. Palapar</h4>
+						<h5>ACS Technologies Ltd.</h5>
+					</td>
+					<td class="col-lg-3">
+						<div class="progress">
+							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+								30% Complete
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!---end here-->
+					
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>

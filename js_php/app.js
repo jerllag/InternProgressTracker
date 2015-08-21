@@ -4,22 +4,20 @@ app.controller("LogInController", function($http, $scope, $modal, $log, $locatio
 	$cookieStore.put('hasUser', false);
 	$scope.loginData = {};
 	
-	this.login = function() {		
+	$scope.login = function() {
 		$http({
 		method: 'GET',
-		url: 'js_php/server.php',
-		params: {email: $scope.loginData.email, pass: $scope.loginData.pass}
+		url: 'js_php/studentCRU.php',
+		params: {studno: $scope.loginData.studno, password: $scope.loginData.password}
 		})
 		.success(function(data) {
-			/*$cookieStore.put('usernum', data[0][0]);
-			$cookieStore.put('name', data[0][1]);
-			$cookieStore.put('email', data[0][2]);
-			$cookieStore.put('password', data[0][3]);
+			$cookieStore.put('studno', data[0][0]);
+			$cookieStore.put('fname', data[0][1]);
+			$cookieStore.put('lname', data[0][2]);
+			$cookieStore.put('email', data[0][3]);
+			$cookieStore.put('password', data[0][4]);
 			$cookieStore.put('hasUser', true);
-			$cookieStore.put('location', 'Home');
-			$cookieStore.put('sortBy', 'filename');
-			$cookieStore.put('sort', 'asc');
-			$location.path("/home");*/
+			$location.path("/leaderboard");
 			
 		})
 		.error(function() {
@@ -29,9 +27,45 @@ app.controller("LogInController", function($http, $scope, $modal, $log, $locatio
 	};
 	
 	$scope.scrollTo = function(id) {
-      $location.hash('aboutUs');
+      $location.hash(id);
       $anchorScroll();
-   }
+	};
+});
+
+app.controller("navbarController", function($location, $cookieStore, $scope) {
+	$scope.signOut = function() {
+		$cookieStore.remove('studno');
+		$cookieStore.remove('fname');
+		$cookieStore.remove('lname');
+		$cookieStore.remove('email');
+		$cookieStore.remove('password');
+		$cookieStore.put('hasUser', false);
+		$location.path("/");
+	};
+});
+
+app.controller("SignUpController", function($http, $scope, $log, $location, $cookieStore, $anchorScroll) {
+	$scope.info = {};
+	
+	$scope.studSignUp = function () {
+		
+		$http.post('js_php/studentCRU.php', {studno: $scope.info.studno, fname: $scope.info.fname, lname: $scope.info.lname, course: $scope.info.course,
+											 college: $scope.info.college, contactno: $scope.info.contactno, email: $scope.info.email, password: $scope.info.password,
+											 compname: $scope.info.compname, startdate: 2015-01-01, enddate: 2015-01-02, hoursrequired: $scope.info.hoursrequired,
+											 compadd: $scope.info.compadd, deptass: $scope.info.deptass, conperson: $scope.info.conperson,
+											 cpcontactno: $scope.info.cpcontactno, cpemail: $scope.info.cpemail})
+			.success(function(data) {
+				alert("Sign up successful");
+			})
+			.error(function(data) {
+				alert(data);
+			});
+	};
+
+	$scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+	};
 });
 
 app.config(function($routeProvider) {
@@ -39,11 +73,17 @@ app.config(function($routeProvider) {
     .when('/', {
       templateUrl: 'html/login.html'
     })
-    .when('/home', {
-      templateUrl: 'html/leaderbord.html'
+    .when('/signup', {
+      templateUrl: 'html/signup.html'
     })
-	.when('/home/account', {
-      templateUrl: 'html/account.html'
+	.when('/leaderboard', {
+      templateUrl: 'html/leaderboard.html'
+    })
+	.when('/profile', {
+      templateUrl: 'html/profile.html'
+    })
+	.when('/accomplishmentReport', {
+      templateUrl: 'html/accomReport.html'
     })
 	.otherwise ({
 		redirectTo: '/'

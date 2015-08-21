@@ -1,35 +1,160 @@
-<?php include("header.php"); ?>
-
- <div class="container">
-
- <section class="page-header" id="content">
+	<div ng-controller="navbarController">
+		<nav class ="navbar navbar-default navbar-fixed-top" id="navBar" style="background-image: url(images/res/bg_4.jpg); repeat: no-repeat; width=100%;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-icon" href="index.php"><img src="images/logo.png" alt="logo"></a>
+				</div>
+			
+				<div class="collapse navbar-collapse" id="homeNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/leaderboard" id="colorHover"><span class="glyphicon glyphicon-pushpin"></span> Leader Board</a></li>
+						<li><a href="#/profile" id="colorHover"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="#/accomplishmentReport" id="colorHover"><span class="glyphicon glyphicon-th-list"></span> Accomplishment Report</a></li>
+						<li><a id="colorHover" role="button" ng-click="signOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	
+	<section class="page-header" id="content">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-lg-12">
 				<h2 align="center"> Accomplishment Report </h2>
 			</div>
 		</div>
 	</section>
 	
-	<div class="row">
-		<div class="col-sm-12" id="content">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th class="col-lg-2"> Date </th>
-					<th class="col-lg-2"> Time-in </th>
-					<th class="col-lg-2"> Time-out </th>
-					<th class="col-lg-6"> Tasks </th>
-				</tr>
-			</thead
-		</table>
-		<div class="row>
-			<div class="col-lg-8" align="right">
-				<button type="submit" class="btn btn-info"><h4><span class="glyphicon glyphicon-save"></span> Save</h4></button>
-				<button type="submit" class="btn btn-primary"><h4><span class="glyphicon glyphicon-plus"></span> Insert Row</h4></button>
-			</div>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table-condensed">
+				<thead align="center">
+					<tr>
+						<th class="col-lg-2"><center>Date</center></th>
+						<th class="col-lg-2"><center>Time-in</center></th>
+						<th class="col-lg-2"><center>Time-out</center></th>
+						<th class="col-lg-4"><center>Tasks</center></th>
+						<th class="col-lg-2"><center>Actions</center></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr align="center">
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="date" class="form-control" id="date">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-in">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-out">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-4">
+								<div class="form-group">
+									<input type="text" class="form-control" id="tasks">
+								</div>
+							</td>
+						</form>
+							<td class="col-lg-2">
+								<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
+								<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+							</td>
+						</tr>
+						<tr align="center">
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="date" class="form-control" id="date">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-in">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-out">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-4">
+								<div class="form-group">
+									<input type="text" class="form-control" id="tasks">
+								</div>
+							</td>
+						</form>
+							<td class="col-lg-2">
+								<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
+								<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+							</td>
+						</tr>
+						<tr align="center">
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="date" class="form-control" id="date">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-in">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-2">
+								<div class="form-group">
+									<input type="time" class="form-control" id="time-out">
+								</div>
+							</td>
+						</form>
+						<form class="form">
+							<td class="col-lg-4">
+								<div class="form-group">
+									<input type="text" class="form-control" id="tasks">
+								</div>
+							</td>
+						</form>
+							<td class="col-lg-2">
+								<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
+								<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+							</td>
+						</tr>
+					<!-- insert row -->
+				</tbody>
+			</table>
 		</div>
 	</div>
-</div>
- </div>
-
-<?php include("footer.php"); ?>
+	
+	<div class="row" id="content" align="right">
+		<div class="col-lg-12">
+			<button type="submit" class="btn btn-primary"><h4><span class="glyphicon glyphicon-plus"></span> Insert Row</h4></button>
+			<button type="submit" class="btn btn-success"><h4><span class="glyphicon glyphicon-save"></span> Save</h4></button>
+		</div>
+	</div>

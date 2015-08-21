@@ -13,9 +13,9 @@
 			
 				<div class="collapse navbar-collapse" id="homeNavbar">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a id="colorHover" ng-click="scrollTo('#')"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-						<li><a id="colorHover" ng-click="scrollTo()"><span class="glyphicon glyphicon-info-sign"></span> About Us</a></li>
-						<li><a href="signup.php" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a id="colorHover" role="button" ng-click="scrollTo('content')"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a id="colorHover" role="button" ng-click="scrollTo('aboutUs')"><span class="glyphicon glyphicon-info-sign"></span> About Us</a></li>
+						<li><a href="#/signup" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,15 +33,15 @@
 							<form role="form">
 								<div class="form-group">
 									<label for="studno"> Student No.: </label>
-									<input type="number" class="form-control" id="studno">
+									<input type="number" class="form-control" id="studno" ng-model="loginData.studno">
 									<label for="pwd">Password:</label>
-									<input type="password" class="form-control" id="pwd">
+									<input type="password" class="form-control" id="pwd" ng-model="loginData.password">
 									<a href="changePassword.php">Forgot your password? </a>
 								</div>
 								<div class="checkbox">
 									<label><input type="checkbox"> Remember me</lable>
 								</div>
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary" ng-click="login()">Login</button>
 							</form>
 					</section>
 				</div>

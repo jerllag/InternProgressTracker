@@ -1,41 +1,126 @@
+	<div ng-controller="navbarController">
+		<nav class ="navbar navbar-default navbar-fixed-top" id="navBar" style="background-image: url(images/res/bg_4.jpg); repeat: no-repeat; width=100%;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-icon" href="index.php"><img src="images/logo.png" alt="logo"></a>
+				</div>
+			
+				<div class="collapse navbar-collapse" id="homeNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/leaderboard" id="colorHover"><span class="glyphicon glyphicon-pushpin"></span> Leader Board</a></li>
+						<li><a href="#/profile" id="colorHover"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="#/accomplishmentReport" id="colorHover"><span class="glyphicon glyphicon-th-list"></span> Accomplishment Report</a></li>
+						<li><a id="colorHover" role="button" ng-click="signOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
 
-<?php include("header.php"); ?>
-
-<div class="page-header" id="content">
-	<div class="row">
-		<div class="col-lg-12">
-			<h2 align="center">My Profile</h2>
+	<div class="page-header" id="content">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 align="center">My Profile</h2>
+			</div>
 		</div>
 	</div>
-</div>
 
-<section class="no-margin">	
-<div class="row" id="content">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-4" align="right"><img src="images/users/jerome.png"></div>
-	<div class="col-lg-6"><h4>
-	
-		~ Personal Information ~
-			Full Name: <br>
-			Contact no.: <br>
-			NEU Email: <br>
-			Course: <br>
-			College: <br>
-			OJT Adviser:<br>
-				<br>
-		~ About the Company ~<br>
-			Name:<br>
-			Address:<br>
-			Department Assigned:<br>
-			Contact Person:<br>
-				> Mobile No.:<br>
-				> Email:<br>
-			Training Period:<br>
-			Hours Required:<br>
-	
-	</h4>
-		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-	</div>
-</section>
-
-<?php include("footer.php"); ?>
+	<section class="no-margin">	
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-2" align="center">
+			<img class="img-circle" src="images/users/jerome.png">
+			<h3><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit</h3></button>
+			<h3><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-lock"></span> Change Password</h3></button><br><br>
+		</div>
+		<div class="col-lg-6">
+			<table class="table table-default">
+				<thead align="left">
+					<tr>
+						<th class="col-lg-4"><h3><span class="glyphicon glyphicon-user"></span> Personal Information</h3></th>
+						<th class="col-lg-2"></th>
+					</tr> 
+				</thead>
+				<tbody align="left">
+					<tr>
+						<td class="col-lg-2">Full Name: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Contact no.: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">NEU Email: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Course: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">College: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">OJT Adviser: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="table table-default">
+				<thead align="left"> 
+					<tr>
+						<th class="col-lg-4"><h3><span class="glyphicon glyphicon-briefcase"></span> Company</h3></th>
+						<th class="col-lg-2"></th>
+					</tr> 
+				</thead>
+				<tbody align="left">
+					<tr>
+						<td class="col-lg-2">Company Name: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Address: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Department Assigned: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Contact Person: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Contact Person's Mobile no.: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Contact Person's Email: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">College: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Training Period: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+					<tr>
+						<td class="col-lg-2">Hours: </td>
+						<td class="col-lg-4"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="col-lg-2"></div>
+		</div>
+	</section>
