@@ -1,6 +1,6 @@
 var app = angular.module("InProgTrack",['ngRoute','ui.bootstrap', 'ngCookies', 'angularFileUpload', 'ng-context-menu']);
 
-app.controller("LogInController", function($http, $scope, $modal, $log, $location, $cookieStore, $anchorScroll) {
+app.controller("LogInController", function($http, $scope, $location, $cookieStore, $anchorScroll) {
 	$cookieStore.put('hasUser', false);
 	$scope.loginData = {};
 	
@@ -11,12 +11,12 @@ app.controller("LogInController", function($http, $scope, $modal, $log, $locatio
 		params: {studno: $scope.loginData.studno, password: $scope.loginData.password}
 		})
 		.success(function(data) {
-			$cookieStore.put('studno', data[0][0]);
+			/*$cookieStore.put('studno', data[0][0]);
 			$cookieStore.put('fname', data[0][1]);
 			$cookieStore.put('lname', data[0][2]);
 			$cookieStore.put('email', data[0][3]);
 			$cookieStore.put('password', data[0][4]);
-			$cookieStore.put('hasUser', true);
+			$cookieStore.put('hasUser', true);*/
 			$location.path("/leaderboard");
 			
 		})
