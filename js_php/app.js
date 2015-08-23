@@ -95,7 +95,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		})
 		.state('navbarlogin.profile', {
 			url: "/profile",
-			templateUrl: "html/profile.html"
+			templateUrl: "html/studentProfile.html"
 		})
 		.state('navbarlogin.accomReport', {
 			url: "/accomReport",
