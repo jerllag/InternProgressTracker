@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 }else if($_SERVER['REQUEST_METHOD'] == "POST") {
 	$info = json_decode(file_get_contents("php://input"), true);
 	$query = mysqli_query($connect,"INSERT into student values ('".$info['studno']."', '".$info['fname']."', '".$info['lname']."', '".$info['course']."', '".$info['college']."', '".$info['contactno']."', '".$info['email']
-											."', '".$info['password']."', '".$info['compname']."', '".$info['startdate']."', '".$info['enddate']."', '".$info['hoursrequired']."')");
+											."', '".$info['password']."', '".$info['compname']."', '".$info['startdate']."', '".$info['enddate']."', '".$info['hoursrequired']."', 0)");
 	$query = mysqli_query($connect,"INSERT into company values ('".$info['compname']."', '".$info['compadd']."', '".$info['deptass']."', '".$info['conperson']."', '".$info['cpcontactno']."', '".$info['cpemail']."')");
 }else if($_SERVER['REQUEST_METHOD'] == "PUT") {
 	$info = json_decode(file_get_contents("php://input"), true);
