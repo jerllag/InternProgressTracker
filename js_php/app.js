@@ -27,24 +27,7 @@ app.controller("LogInController", function($http, $scope, $location, $cookieStor
 	};
 });
 
-app.controller("navbarController", function($location, $cookieStore, $scope, $anchorScroll, $state) {
-	$scope.signOut = function() {
-		$cookieStore.remove('studno');
-		$cookieStore.remove('fname');
-		$cookieStore.remove('lname');
-		$cookieStore.remove('email');
-		$cookieStore.remove('password');
-		$cookieStore.put('hasUser', false);
-		$state.go("navbar.login");
-	};
-	
-	$scope.scrollTo = function(id) {
-      $location.hash(id);
-      $anchorScroll();
-	};
-});
-
-app.controller("SignUpController", function($http, $scope, $log, $location, $cookieStore, $anchorScroll) {
+app.controller("SignUpController", function($http, $scope, $location, $cookieStore, $anchorScroll) {
 	$scope.info = {};
 	
 	$scope.studSignUp = function () {
@@ -66,6 +49,37 @@ app.controller("SignUpController", function($http, $scope, $log, $location, $coo
       $location.hash(id);
       $anchorScroll();
 	};
+});
+
+app.controller("ProfileController", function($http, $scope, $cookieStore) {
+	$scope.profileData = {};
+
+	$http({
+		method: 'GET',
+		url: 'js_php/studentProfileRU.php',
+		params: {studno: $cookieStore.get('studno')}
+		})
+		.success(function(data) {
+			$scope.profileData.fname = data[0][1];
+			$scope.profileData.lname = data[0][2];
+			$scope.profileData.course = data[0][3];
+			$scope.profileData.college = data[0][4];
+			$scope.profileData.contactno = data[0][5];
+			$scope.profileData.email = data[0][6];
+			$scope.profileData.startdate = data[0][9];
+			$scope.profileData.enddate = data[0][10];
+			$scope.profileData.hoursrequired = data[0][11];
+			$scope.profileData.compname = data[0][12];
+			$scope.profileData.compadd = data[0][13];
+			$scope.profileData.deptass = data[0][14];
+			$scope.profileData.conperson = data[0][15];
+			$scope.profileData.cpcontactno = data[0][16];
+			$scope.profileData.cpemail = data[0][17];
+		})
+		.error(function() {
+			alert("error");
+		})
+		;
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -101,4 +115,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "/accomReport",
 			templateUrl: "html/accomReport.html"
 		});
+});
+
+app.controller("navbarController", function($location, $cookieStore, $scope, $anchorScroll, $state) {
+	$scope.signOut = function() {
+		$cookieStore.remove('studno');
+		$cookieStore.remove('fname');
+		$cookieStore.remove('lname');
+		$cookieStore.remove('email');
+		$cookieStore.remove('password');
+		$cookieStore.put('hasUser', false);
+		$state.go("navbar.login");
+	};
+	
+	$scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+	};
 });
