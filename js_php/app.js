@@ -27,14 +27,16 @@ app.controller("LogInController", function($http, $scope, $location, $cookieStor
 	};
 });
 
-app.controller("SignUpController", function($http, $scope, $location, $cookieStore, $anchorScroll) {
+app.controller("SignUpController", function($http, $scope, $location, $cookieStore, $anchorScroll, $filter) {
 	$scope.info = {};
 	
 	$scope.studSignUp = function () {
-		
+		var sdate = $filter('date')($scope.info.startdate, "yyyy-MM-dd");
+		var edate = $filter('date')($scope.info.enddate, "yyyy-MM-dd");
+		alert(edate);
 		$http.post('js_php/studentCRU.php', {studno: $scope.info.studno, fname: $scope.info.fname, lname: $scope.info.lname, course: $scope.info.course,
 											 college: $scope.info.college, contactno: $scope.info.contactno, email: $scope.info.email, password: $scope.info.password,
-											 compname: $scope.info.compname, startdate: "2015-01-01", enddate: "2015-01-02", hoursrequired: $scope.info.hoursrequired,
+											 compname: $scope.info.compname, startdate: sdate, enddate: edate, hoursrequired: $scope.info.hoursrequired,
 											 compadd: $scope.info.compadd, deptass: $scope.info.deptass, conperson: $scope.info.conperson,
 											 cpcontactno: $scope.info.cpcontactno, cpemail: $scope.info.cpemail})
 			.success(function(data) {
@@ -49,6 +51,31 @@ app.controller("SignUpController", function($http, $scope, $location, $cookieSto
       $location.hash(id);
       $anchorScroll();
 	};
+});
+
+app.controller("LeaderboardController", function($http, $scope, $cookieStore) {
+	$scope.leaderboardFname = [];
+	$scope.leaderboardLname = [];
+	$scope.leaderboardCompname = [];
+	$scope.leaderboardPercentage = [];
+
+	$http({
+		method: 'GET',
+		url: 'js_php/leaderboard.php',
+		params: {studno: $cookieStore.get('studno')}
+		})
+		.success(function(data) {
+			for(i = 0; i <data.length; i++) {
+				$scope.leaderboardFname.push(data[i][0]);
+				$scope.leaderboardLname.push(data[i][1]);
+				$scope.leaderboardCompname.push(data[i][2]);
+				$scope.leaderboardPercentage.push(data[i][3]);
+			}
+		})
+		.error(function() {
+			alert("error");
+		})
+		;
 });
 
 app.controller("ProfileController", function($http, $scope, $cookieStore) {
