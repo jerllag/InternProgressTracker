@@ -112,9 +112,24 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="hours">Total OJT Hours Required: </label>						
-						<input type="number"  class="form-control" id="start_date" ng-model="info.hoursrequired">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="hours">Total OJT Hours: </label>
+								<input type="hours"  class="form-control" id="ojt_hours">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="start_date">Batch: </label>
+								<select class="form-control" id="batch">
+									<option value="select">Please select</option>
+									<option value="1st Semester">1st Semester</option>
+									<option value="2nd Semester">2nd Semester</option>
+									<option value="Summer">Summer</option> <!--ADD YEAR WITH ANGULAR JS-->
+								</select>
+							</div>
+						</div>
 					</div>
 					</div>
 				</form>
@@ -148,8 +163,12 @@
 						<input type="text" class="form-control" id="lname">
 					</div>
 					<div class="form-group">
-						<label for="program"> Program Supervised: </label>
-						<input type="text" class="form-control" id="program">
+						<label for="start_date">Program Supervised: </label>
+						<select class="form-control" id="batch">
+							<option value="select">Please select</option>
+							<option value=""></option>
+							 <!--ADD VALUE BASED ON COURSE TABLE-->
+						</select>
 					</div>
 				</form>
 			</div>
